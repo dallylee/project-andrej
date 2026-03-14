@@ -44,6 +44,18 @@ body {
     linear-gradient(180deg, #f5f0e5 0%, #efe8dc 100%);
 }
 
+body.is-locked {
+  overflow: hidden;
+}
+
+body.is-locked header,
+body.is-locked main,
+body.is-locked footer {
+  filter: blur(10px);
+  pointer-events: none;
+  user-select: none;
+}
+
 body::before {
   content: "";
   position: fixed;
@@ -942,6 +954,95 @@ img {
 
 .site-footer-inner p {
   margin: 0;
+}
+
+.access-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(243, 238, 227, 0.52);
+  backdrop-filter: blur(16px);
+}
+
+.access-gate__panel {
+  width: min(100%, 520px);
+  padding: 30px;
+  border-radius: 26px;
+  border: 1px solid rgba(44, 39, 31, 0.14);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 244, 235, 0.95)),
+    #fff;
+  box-shadow:
+    0 26px 56px rgba(49, 38, 20, 0.14),
+    0 16px 34px rgba(40, 77, 115, 0.14);
+}
+
+.access-gate__eyebrow {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(40, 77, 115, 0.1);
+  color: #20476c;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.access-gate__title {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+  line-height: 1.08;
+}
+
+.access-gate__text {
+  margin: 0 0 18px;
+  color: var(--ink-soft);
+}
+
+.access-gate__form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.access-gate__label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.access-gate__input {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(44, 39, 31, 0.16);
+  background: rgba(255, 255, 255, 0.96);
+  color: var(--ink);
+  font: inherit;
+  font-size: 1.05rem;
+}
+
+.access-gate__input:focus {
+  outline: 2px solid rgba(40, 77, 115, 0.18);
+  border-color: rgba(40, 77, 115, 0.38);
+}
+
+.access-gate__error {
+  min-height: 1.4em;
+  margin: 0;
+  color: #9b2d2d;
+  font-size: 0.92rem;
+}
+
+.access-gate__button {
+  justify-content: center;
+  margin-top: 4px;
 }
 
 .stack-sm > * + * {
