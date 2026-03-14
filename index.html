@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
-<body class="theme-system">
+<body class="theme-system home-page">
   <header class="topbar">
     <div class="topbar-inner">
       <div class="brand">
@@ -25,39 +25,114 @@
   </header>
 
   <main class="page-shell">
-    <section class="hero">
-      <div class="hero-grid">
+    <section class="hero hero-overview">
+      <div class="intro-stack">
         <div>
-          <span class="eyebrow">Lokalna statična prezentacija</span>
-          <h1>Četiri povezane ponude, složene kao jasan digitalni pregled.</h1>
+          <span class="eyebrow">Bok Andrej</span>
+          <h1>Složio sam ovo kao četiri odvojene ponude, tako da odmah vidiš što svaki dio radi i s čime ima smisla krenuti.</h1>
           <p class="hero-lead">
-            Umjesto da se ponuda čita kroz četiri odvojena PDF-a, ova verzija vodi Andreja kroz tri fokusirane
-            opcije i završava cjelovitom slikom privatnog AI operativnog sustava. Sadržaj ostaje na hrvatskom,
-            zadržava izvorne preporuke i ne uvodi nikakav backend, prijavu ili spremanje odluke.
+            Kao što smo pričali, ideja nije da moraš sve uzeti odjednom. Svaka kartica ispod otvara jedan jasan komad
+            rješenja, a zajedno pokazuju kako bi privatni AI sustav mogao izgledati kad sve sjedne na svoje mjesto.
           </p>
-          <div class="action-row">
-            <a class="button-link" href="dokumentna-baza.html">Kreni od prve ponude</a>
-            <a class="button-link secondary" href="ai-sustav.html">Pogledaj završnu cjelinu</a>
-          </div>
-          <div class="hero-meta">
-            <article class="meta-card">
-              <span class="meta-label">Format</span>
-              <span class="meta-value">5 lokalnih stranica + izvorni PDF-ovi</span>
-            </article>
-            <article class="meta-card">
-              <span class="meta-label">Jezik</span>
-              <span class="meta-value">Hrvatski, bez promjene poslovnog tona</span>
-            </article>
-            <article class="meta-card">
-              <span class="meta-label">Cilj</span>
-              <span class="meta-value">Jasnije razumjeti, usporediti i odgovoriti</span>
-            </article>
-          </div>
+          <p class="friendly-note">
+            Možeš otvoriti bilo koju karticu prvu. Nema obveznog reda. Poanta je da pregled odmah bude jasan, a detalji i
+            puna objašnjenja stoje niže na stranici i unutar svake zasebne ponude.
+          </p>
         </div>
-        <figure class="hero-figure">
-          <img src="dashboard.png" alt="Infografika središnjeg dashboarda">
-          <figcaption class="figure-caption">Vizual završne slike: sva komunikacija, obveze i AI pomoć okupljeni u jednom radnom sloju.</figcaption>
-        </figure>
+
+        <div class="offer-overview-grid" aria-label="Četiri glavne ponude">
+          <article class="offer-card offer-card--email">
+            <figure class="offer-card__media">
+              <img src="single trijaza mailova.png" alt="Vizual za email triage">
+            </figure>
+            <div class="offer-card__body">
+              <span class="offer-card__label">Email triage</span>
+              <h2 class="offer-card__title">Pametan inbox koji sam postavlja prioritete.</h2>
+              <p class="offer-card__summary">
+                AI prepoznaje hitne poruke, razdvaja rutinu od onoga što stvarno traži pažnju i može pripremiti nacrte
+                odgovora za autorizaciju.
+              </p>
+              <div class="offer-card__tags">
+                <span>više inboxa</span>
+                <span>prioriteti</span>
+                <span>nacrti odgovora</span>
+              </div>
+              <div class="offer-card__footer">
+                <a class="button-link" href="email-triage.html">Otvori ponudu</a>
+                <span class="offer-card__hint">Korisno čim inbox počne trošiti fokus.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer-card offer-card--database">
+            <figure class="offer-card__media">
+              <img src="single baza podataka.png" alt="Vizual za bazu dokumenata">
+            </figure>
+            <div class="offer-card__body">
+              <span class="offer-card__label">Database</span>
+              <h2 class="offer-card__title">Arhiva koja trenutačno daje odgovore.</h2>
+              <p class="offer-card__summary">
+                Dokumenti i stari predmeti prelaze iz pasivne arhive u bazu znanja koja brzo pronalazi reference, radi
+                sažetke i pomaže u pripremi.
+              </p>
+              <div class="offer-card__tags">
+                <span>pilot moguće odmah</span>
+                <span>OCR i pretraga</span>
+                <span>sažeci predmeta</span>
+              </div>
+              <div class="offer-card__footer">
+                <a class="button-link" href="dokumentna-baza.html">Otvori ponudu</a>
+                <span class="offer-card__hint">Najčišći prvi korak za stvarnu vrijednost iz arhive.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer-card offer-card--dashboard">
+            <figure class="offer-card__media">
+              <img src="single dashboard.png" alt="Vizual za dashboard">
+            </figure>
+            <div class="offer-card__body">
+              <span class="offer-card__label">Dashboard</span>
+              <h2 class="offer-card__title">Jedan ekran za potpunu operativnu kontrolu.</h2>
+              <p class="offer-card__summary">
+                Centralno sučelje koje na jednom mjestu spaja mail, kalendar, zadatke, dokumente i AI sažetke kada bude
+                imalo smisla sve povezati u jedan pregledan sloj.
+              </p>
+              <div class="offer-card__tags">
+                <span>mission control</span>
+                <span>nije nužan za start</span>
+                <span>širi sustav</span>
+              </div>
+              <div class="offer-card__footer">
+                <a class="button-link" href="ai-sustav.html">Otvori ponudu</a>
+                <span class="offer-card__hint">Najkorisnije kasnije, kad se želi sve na jednom ekranu.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="offer-card offer-card--assistant">
+            <figure class="offer-card__media">
+              <img src="single ai assistant.png" alt="Vizual za osobni AI asistent">
+            </figure>
+            <div class="offer-card__body">
+              <span class="offer-card__label">Personal AI</span>
+              <h2 class="offer-card__title">Inteligentna podrška 24/7 za posao i logistiku.</h2>
+              <p class="offer-card__summary">
+                Dnevni briefinzi, podsjetnici, prioriteti i diskretna concierge pomoć u modelu gdje osjetljive radnje i
+                dalje ostaju pod tvojim odobrenjem.
+              </p>
+              <div class="offer-card__tags">
+                <span>briefing dana</span>
+                <span>podsjetnici</span>
+                <span>concierge support</span>
+              </div>
+              <div class="offer-card__footer">
+                <a class="button-link" href="osobni-asistent.html">Otvori ponudu</a>
+                <span class="offer-card__hint">Može donijeti vrijednost odmah, bez čekanja na puni sustav.</span>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -65,128 +140,139 @@
       <aside class="toc-panel">
         <h2 class="toc-title">Na ovoj stranici</h2>
         <ol class="toc-list"></ol>
-        <p class="toc-help">Svaka kartica vodi na zasebnu stranicu s detaljima i linkom na izvorni PDF dokument.</p>
+        <p class="toc-help">Gore su četiri brza ulaza. Ispod je šira slika, objašnjenje kako se ponude nadopunjuju i moja preporuka gdje krenuti.</p>
       </aside>
 
       <div class="content-stack">
-        <section class="content-panel" data-toc="Kako čitati ovu ponudu">
-          <h2>Kako čitati ovu ponudu</h2>
+        <section class="content-panel surface-strong" data-toc="Velika slika">
+          <h2>Velika slika u jednom kadru</h2>
           <p class="lede">
-            Ovdje je namjerno zadržana logika izvornog materijala: prvo tri specijalizirane ponude, zatim završna
-            stranica koja ih povezuje u jedan privatni AI sustav. To omogućuje da se svaka tema procijeni samostalno,
-            ali i da se na kraju vidi kako bi sve zajedno izgledalo u stvarnom radu.
+            Ako želiš najbrži pregled bez otvaranja kartica jednu po jednu, ovo je sažetak cijele logike na jednoj slici:
+            četiri odvojena dijela koji se mogu razumjeti zasebno, ali zajedno čine ozbiljan privatni AI operativni sloj.
           </p>
-          <div class="fact-grid">
-            <article class="fact-card">
-              <span class="fact-label">1. Fokusirani moduli</span>
-              <strong>Dokumenti, e-pošta, osobni asistent</strong>
-              <p>Tri stranice idu u dubinu: problem, opcije, trošak, preporuka i puna poveznica na izvorni dokument.</p>
+          <figure class="section-figure">
+            <img src="homepage.png" alt="Sažetak četiri AI ponude na jednoj slici">
+            <figcaption class="figure-caption">Četiri ponude su povezane, ali nisu vezane jedna za drugu redoslijedom.</figcaption>
+          </figure>
+        </section>
+
+        <section class="content-panel" data-toc="Kako se nude nadopunjuju">
+          <h2>Kako se nude prirodno nadopunjuju</h2>
+          <p class="lede">
+            Neke teme prirodno idu zajedno. Trijaža mailova i baza dokumenata rješavaju “što mi je bitno i gdje je
+            informacija”, dok osobni AI i dashboard više rješavaju svakodnevni operativni sloj i pregled rada.
+          </p>
+          <div class="banner-grid">
+            <article class="banner-card">
+              <h3>Mail + dokumenti</h3>
+              <p class="muted">Ovaj par najbrže vraća red: inbox prestaje biti kaos, a arhiva prestaje biti mrtva pohrana.</p>
+              <img src="trijaza mailava left database right.jpg" alt="Banner koji spaja email triage i dokumentnu bazu">
             </article>
-            <article class="fact-card">
-              <span class="fact-label">2. Završna sinteza</span>
-              <strong>AI sustav kao krovna slika</strong>
-              <p>Na kraju se vidi kako se pojedinačni moduli spajaju u jedno zaštićeno, profesionalno radno okruženje.</p>
-            </article>
-            <article class="fact-card">
-              <span class="fact-label">3. Bez tehničkog tereta</span>
-              <strong>Nema prijave, forme ni spremanja</strong>
-              <p>Cijela prezentacija je lokalna i služi samo za pregled, bez lažnog “submit” mehanizma ili prikrivene automatizacije.</p>
+            <article class="banner-card">
+              <h3>Osobni AI + dashboard</h3>
+              <p class="muted">Ovaj par je više operativni luksuz i preglednost: osobna pomoć, briefing i jedan kontrolni ekran kad to postane stvarno korisno.</p>
+              <img src="ai left dashboard right.png" alt="Banner koji spaja osobnog AI asistenta i dashboard">
             </article>
           </div>
         </section>
 
-        <section class="content-panel" data-toc="Tri fokusirane ponude">
-          <h2>Tri fokusirane ponude</h2>
+        <section class="content-panel" data-toc="Kako čitati ponudu">
+          <h2>Kako čitati ponudu bez previše filozofije</h2>
           <p class="lede">
-            Svaka od sljedeće tri stranice obrađuje jednu konkretnu poslovnu bol: dokumentnu arhivu, Outlook inbox i
-            svakodnevnu organizaciju kroz privatnog AI asistenta. Ton ostaje profesionalan, ali pregled postaje puno
-            lakši nego u klasičnom PDF rasporedu.
-          </p>
-          <div class="teaser-grid">
-            <article class="teaser-card">
-              <span class="eyebrow">Ponuda 1</span>
-              <h3>AI dokumentna baza</h3>
-              <p>Pretvara pasivnu arhivu, spise i ranije predmete u pretraživu bazu znanja koja pomaže pri pripremi, sažecima i pronalasku referenci.</p>
-              <div class="badge-row">
-                <span class="badge">NotebookLM pilot</span>
-                <span class="badge">Lokalna arhiva</span>
-                <span class="badge">Napredni cloud</span>
-              </div>
-              <p><a class="text-link" href="dokumentna-baza.html">Otvori detalje</a></p>
-            </article>
-            <article class="teaser-card">
-              <span class="eyebrow">Ponuda 2</span>
-              <h3>AI e-mail triage</h3>
-              <p>Rješava operativni kaos u Outlooku kroz filtriranje, određivanje prioriteta, pripremu nacrta i strogo kontrolirane potvrde primitka.</p>
-              <div class="badge-row">
-                <span class="badge">0 € početak</span>
-                <span class="badge">AI prioriteti</span>
-                <span class="badge">Više inboxa</span>
-              </div>
-              <p><a class="text-link" href="email-triage.html">Otvori detalje</a></p>
-            </article>
-            <article class="teaser-card">
-              <span class="eyebrow">Ponuda 3</span>
-              <h3>Privatni AI osobni asistent</h3>
-              <p>Pomaže s dnevnim prioritetima, sastancima, podsjetnicima i dijelom privatne logistike, ali uvijek unutar approval-based modela.</p>
-              <div class="badge-row">
-                <span class="badge">25 € - 50 € mjesečno</span>
-                <span class="badge">Concierge support</span>
-                <span class="badge">Informacijski filter</span>
-              </div>
-              <p><a class="text-link" href="osobni-asistent.html">Otvori detalje</a></p>
-            </article>
-          </div>
-        </section>
-
-        <section class="content-panel" data-toc="Kako se uklapaju u cjelinu">
-          <h2>Kako se uklapaju u cjelinu</h2>
-          <p class="lede">
-            Završna stranica ne uvodi novu temu, nego spaja ove tri ponude u jasnu sliku: dokumenti kao baza znanja,
-            e-mail kao operativni filter, a osobni asistent kao sloj koji povezuje informacije, kalendar, zadatke i prioritete.
+            Ako želiš brz i praktičan pristup, otvori samo dvije ili tri kartice koje ti odmah djeluju korisno. Ništa ovdje
+            nije zamišljeno kao “sve ili ništa”.
           </p>
           <div class="split-grid">
-            <article class="quote-card">
-              <p>
-                Najvrjedniji element nije “AI” sam po sebi, nego osjećaj da manje toga ostaje zatrpano, zaboravljeno ili
-                ručno traženo po mapama, inboxima i kalendarima.
-              </p>
-              <p class="quote-source">Temeljna nit kroz sva četiri izvorna dokumenta</p>
-            </article>
             <article class="list-card">
-              <span class="fact-label">Završna stranica uključuje</span>
+              <span class="fact-label">Ako želiš najbrži pregled</span>
               <ul>
-                <li>krovni sažetak privatnog AI operativnog sustava</li>
-                <li>ključne funkcionalnosti i sigurnosna pravila</li>
-                <li>fazni model provedbe i moguća tri modela implementacije</li>
-                <li>zaključak i mirni “review and reply” završetak</li>
+                <li>prvo otvori Database i Personal AI</li>
+                <li>zatim pogledaj Email triage ako inbox stvara svakodnevni operativni stres</li>
+                <li>Dashboard ostavi za kraj kao širu sliku i kasniji sloj</li>
               </ul>
             </article>
+            <article class="quote-card">
+              <p>
+                Najvrjedniji dio nije “AI” sam po sebi, nego osjećaj da manje toga ostaje zatrpano, zaboravljeno ili
+                ručno traženo po mapama, inboxima i kalendarima.
+              </p>
+              <p class="quote-source">Temeljna nit kroz sve četiri ponude</p>
+            </article>
           </div>
-          <p><a class="button-link secondary" href="ai-sustav.html">Pogledaj završnu sintezu</a></p>
+        </section>
+
+        <section class="content-panel surface-strong" data-toc="Moja preporuka">
+          <h2>Moja preporuka za prvi korak</h2>
+          <p class="lede">
+            Da moram ovo složiti kao razuman početak, išao bih jednostavno: krenuti s onim što odmah vraća korist, a
+            širenje ostaviti za kasnije kad se vidi što stvarno najviše pomaže u praksi.
+          </p>
+          <div class="recommend-grid">
+            <article class="recommend-card">
+              <span class="decision-pill decision-pill--now">Krenuti odmah</span>
+              <h3>Database</h3>
+              <p>
+                Ovo je najčišći početak. Može krenuti i kroz LLM-based notebook / case-vault pristup nad jednim predmetom
+                ili fokusiranom bazom, bez velikog zahvata od prvog dana.
+              </p>
+              <p><a class="text-link" href="dokumentna-baza.html">Otvori detalje baze dokumenata</a></p>
+            </article>
+            <article class="recommend-card">
+              <span class="decision-pill decision-pill--now">Krenuti odmah</span>
+              <h3>Personal AI</h3>
+              <p>
+                Ovo može dati vrijednost vrlo brzo: briefing dana, podsjetnici, prioriteti i osobna operativna pomoć bez
+                potrebe da se odmah gradi cijeli sustav.
+              </p>
+              <p><a class="text-link" href="osobni-asistent.html">Otvori detalje osobnog AI-a</a></p>
+            </article>
+            <article class="recommend-card">
+              <span class="decision-pill decision-pill--pilot">Razraditi odmah nakon toga</span>
+              <h3>Email triage</h3>
+              <p>
+                Ovo je vrlo korisno i po meni ima smisla, ali bih ga ipak dodatno razradio kroz razgovor oko volumena
+                mailova, više inboxa i razine AI automatizacije koja je stvarno primjerena.
+              </p>
+              <p><a class="text-link" href="email-triage.html">Otvori detalje email triagea</a></p>
+            </article>
+            <article class="recommend-card">
+              <span class="decision-pill decision-pill--later">Kasnije dodati</span>
+              <h3>Dashboard</h3>
+              <p>
+                Nije nužan na startu. Ima smisla tek kad postoji dovoljno razloga da se mail, kalendar, zadaci i dokumenti
+                stvarno žele gledati iz jednog centralnog ekrana.
+              </p>
+              <p><a class="text-link" href="ai-sustav.html">Otvori detalje dashboarda i sustava</a></p>
+            </article>
+          </div>
         </section>
 
         <section class="content-panel" data-toc="Izvorni dokumenti">
           <h2>Izvorni dokumenti</h2>
           <p class="lede">
-            Ako Andrej poželi provjeriti puni izvorni format, svaki PDF ostaje dostupan izravno iz ove mape. Web verzija
-            služi da ponuda izgleda smirenije, preglednije i profesionalnije, bez ikakvog gubitka izvorne logike.
+            Ako želiš provjeriti puni izvorni format, svi PDF-ovi ostaju ovdje. Web verzija samo služi da sve bude lakše
+            za skenirati i usporediti bez gubitka izvornog smisla.
           </p>
           <div class="list-grid">
             <article class="list-card">
               <span class="fact-label">PDF 1</span>
-              <h3>Dokumentna baza</h3>
+              <h3>Database</h3>
               <p><a class="text-link" href="Dokumentna Baza 3 Opcije.pdf">Otvori izvorni PDF</a></p>
             </article>
             <article class="list-card">
               <span class="fact-label">PDF 2</span>
-              <h3>E-mail triage</h3>
+              <h3>Email triage</h3>
               <p><a class="text-link" href="Email Triage 3 Opcije.pdf">Otvori izvorni PDF</a></p>
             </article>
             <article class="list-card">
               <span class="fact-label">PDF 3</span>
-              <h3>Osobni asistent</h3>
+              <h3>Personal AI</h3>
               <p><a class="text-link" href="Osobni Asistent.pdf">Otvori izvorni PDF</a></p>
+            </article>
+            <article class="list-card">
+              <span class="fact-label">PDF 4</span>
+              <h3>Dashboard / sustav</h3>
+              <p><a class="text-link" href="Ai Sustav.pdf">Otvori izvorni PDF</a></p>
             </article>
           </div>
         </section>
@@ -194,12 +280,12 @@
         <section class="cta-panel" data-toc="Sljedeći korak">
           <h2>Sljedeći korak</h2>
           <p class="lede">
-            Pregled može ići redom kroz tri specijalizirane stranice, a zatim završiti na krovnoj stranici AI sustava. Time
-            Andrej dobiva i pregled opcija i osjećaj kako bi preporučeni smjer izgledao kao stvarno radno rješenje.
+            Ako želiš, pogledaj prvo Database i Personal AI, pa se onda vrati na Email triage i Dashboard kao drugi krug.
+            Time prvi razgovor ostaje praktičan i nije zatrpan opcijama koje možda u startu nisu nužne.
           </p>
           <div class="action-row">
-            <a class="button-link" href="dokumentna-baza.html">Kreni na dokumentnu bazu</a>
-            <a class="button-link secondary" href="ai-sustav.html">Preskoči na završnu sliku</a>
+            <a class="button-link" href="dokumentna-baza.html">Kreni s database ponudom</a>
+            <a class="button-link secondary" href="osobni-asistent.html">Otvori Personal AI</a>
           </div>
         </section>
       </div>
