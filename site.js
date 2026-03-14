@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupAccessGate();
   highlightCurrentPage();
   buildToc();
+  setupHeroImageLightbox();
+  setupCopyButtons();
 });
 
 const ACCESS_KEY = "andrej-offer-access-v1";
@@ -128,6 +130,179 @@ function buildToc() {
   );
 
   sections.forEach((section) => observer.observe(section));
+}
+
+function setupHeroImageLightbox() {
+  if (document.body.classList.contains("home-page")) {
+    return;
+  }
+
+  const images = Array.from(document.querySelectorAll(".hero-figure img"));
+  if (images.length === 0) {
+    return;
+  }
+
+  const lightbox = document.createElement("div");
+  lightbox.className = "image-lightbox";
+  lightbox.setAttribute("aria-hidden", "true");
+  lightbox.innerHTML = `
+    <button class="image-lightbox__backdrop" type="button" aria-label="Zatvori uvećani prikaz"></button>
+    <figure class="image-lightbox__figure" role="dialog" aria-modal="true" aria-label="Uvećani prikaz infografike">
+      <img class="image-lightbox__image" alt="">
+      <figcaption class="image-lightbox__caption"></figcaption>
+    </figure>
+  `;
+
+  document.body.appendChild(lightbox);
+
+  const lightboxImage = lightbox.querySelector(".image-lightbox__image");
+  const lightboxCaption = lightbox.querySelector(".image-lightbox__caption");
+  let activeImage = null;
+
+  if (!(lightboxImage instanceof HTMLImageElement) || !(lightboxCaption instanceof HTMLElement)) {
+    return;
+  }
+
+  const closeLightbox = () => {
+    if (!lightbox.classList.contains("is-open")) {
+      return;
+    }
+
+    lightbox.classList.remove("is-open");
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("is-lightbox-open");
+
+    if (activeImage) {
+      activeImage.setAttribute("aria-expanded", "false");
+      activeImage.focus({ preventScroll: true });
+    }
+
+    activeImage = null;
+  };
+
+  const openLightbox = (image) => {
+    const captionText =
+      image.closest("figure")?.querySelector(".figure-caption")?.textContent?.trim() ||
+      image.getAttribute("alt") ||
+      "";
+
+    lightboxImage.src = image.currentSrc || image.src;
+    lightboxImage.alt = image.getAttribute("alt") || "";
+    lightboxCaption.textContent = captionText;
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.classList.add("is-lightbox-open");
+
+    if (activeImage && activeImage !== image) {
+      activeImage.setAttribute("aria-expanded", "false");
+    }
+
+    activeImage = image;
+    activeImage.setAttribute("aria-expanded", "true");
+  };
+
+  images.forEach((image) => {
+    image.classList.add("is-zoomable");
+    image.setAttribute("role", "button");
+    image.setAttribute("tabindex", "0");
+    image.setAttribute("aria-expanded", "false");
+    image.setAttribute("aria-label", `${image.getAttribute("alt") || "Infografika"}. Klik za veći prikaz.`);
+
+    image.addEventListener("click", () => {
+      if (activeImage === image && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+        return;
+      }
+
+      openLightbox(image);
+    });
+
+    image.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (activeImage === image && lightbox.classList.contains("is-open")) {
+        closeLightbox();
+        return;
+      }
+
+      openLightbox(image);
+    });
+  });
+
+  lightbox.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    if (
+      target.classList.contains("image-lightbox__backdrop") ||
+      target.classList.contains("image-lightbox__image")
+    ) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+  });
+}
+
+function setupCopyButtons() {
+  const buttons = Array.from(document.querySelectorAll("[data-copy-target]"));
+  if (buttons.length === 0) {
+    return;
+  }
+
+  buttons.forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    button.addEventListener("click", async () => {
+      const targetId = button.dataset.copyTarget;
+      const target = targetId ? document.getElementById(targetId) : null;
+      const feedback = button.parentElement?.querySelector(".copy-feedback");
+      const text = target instanceof HTMLTextAreaElement ? target.value : target?.textContent?.trim() || "";
+
+      if (!text) {
+        return;
+      }
+
+      const success = await copyText(text);
+      if (feedback instanceof HTMLElement) {
+        feedback.textContent = success ? "Tekst je spreman za mail." : "Kopiranje nije uspjelo.";
+      }
+    });
+  });
+}
+
+async function copyText(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    try {
+      const helper = document.createElement("textarea");
+      helper.value = text;
+      helper.setAttribute("readonly", "");
+      helper.style.position = "absolute";
+      helper.style.left = "-9999px";
+      document.body.appendChild(helper);
+      helper.select();
+      const copied = document.execCommand("copy");
+      helper.remove();
+      return copied;
+    } catch {
+      return false;
+    }
+  }
 }
 
 function slugify(text) {
