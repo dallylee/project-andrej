@@ -260,7 +260,8 @@ img {
 }
 
 .intro-note {
-  max-width: 560px;
+  width: 100%;
+  max-width: none;
   padding: 14px 16px;
   border-radius: 18px;
   border: 1px solid rgba(44, 39, 31, 0.12);
@@ -277,20 +278,24 @@ img {
   font-size: 1.08rem;
 }
 
-.overview-title {
-  max-width: 26ch;
+.hero .overview-title {
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
   text-align: center;
   font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3vw, 3rem);
+  font-size: clamp(1.05rem, 2.2vw, 2rem);
   font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  word-spacing: -0.12em;
+  white-space: nowrap;
 }
 
 .intro-greeting,
 .intro-copy {
   margin: 0;
+  font-weight: 700;
 }
 
 .intro-greeting {
@@ -300,8 +305,8 @@ img {
 }
 
 .intro-copy {
-  max-width: 78ch;
-  color: var(--ink-soft);
+  max-width: none;
+  color: var(--ink);
   font-size: 12px;
   line-height: 1.55;
 }
@@ -1387,6 +1392,11 @@ img {
 
   .hero h1 {
     font-size: 2.4rem;
+  }
+
+  .hero .overview-title {
+    font-size: 1.05rem;
+    white-space: normal;
   }
 
   .offer-card__footer {
