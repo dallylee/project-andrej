@@ -511,22 +511,120 @@ img {
 }
 
 .recommend-card {
+  --recommend-accent: #4d7eab;
   display: flex;
+  position: relative;
+  overflow: hidden;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
   border-radius: 20px;
-  padding: 22px;
-  border: 1px solid rgba(44, 39, 31, 0.12);
+  padding: 24px 24px 24px 28px;
+  border: 1px solid color-mix(in srgb, var(--recommend-accent) 28%, rgba(44, 39, 31, 0.12));
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(250, 244, 235, 0.92)),
+    radial-gradient(circle at top right, color-mix(in srgb, var(--recommend-accent) 18%, rgba(255, 255, 255, 0)) 0, transparent 38%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.995), rgba(248, 242, 234, 0.96)),
     #fff;
-  box-shadow: var(--shadow-soft);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.88),
+    0 26px 56px rgba(17, 30, 41, 0.12),
+    0 14px 32px color-mix(in srgb, var(--recommend-accent) 15%, rgba(17, 30, 41, 0));
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+  animation: recommendGlow 8s ease-in-out infinite;
+}
+
+.recommend-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 7px;
+  background: linear-gradient(180deg, var(--recommend-accent), color-mix(in srgb, var(--recommend-accent) 42%, #f0c777));
+}
+
+.recommend-card::after {
+  content: "";
+  position: absolute;
+  top: -28%;
+  right: -12%;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--recommend-accent) 20%, rgba(255, 255, 255, 0.88)) 0, rgba(255, 255, 255, 0) 72%);
+  opacity: 0.55;
+  pointer-events: none;
+  animation: recommendSheen 9s ease-in-out infinite;
+}
+
+.recommend-card:hover,
+.recommend-card:focus-within {
+  transform: translateY(-8px);
+  border-color: color-mix(in srgb, var(--recommend-accent) 44%, rgba(44, 39, 31, 0.12));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.94),
+    0 34px 72px rgba(17, 30, 41, 0.16),
+    0 18px 38px color-mix(in srgb, var(--recommend-accent) 22%, rgba(17, 30, 41, 0));
+}
+
+.recommend-card:nth-child(1) {
+  --recommend-accent: #3f6e95;
+  animation-delay: 0s;
+}
+
+.recommend-card:nth-child(2) {
+  --recommend-accent: #5c8453;
+  animation-delay: 1.2s;
+}
+
+.recommend-card:nth-child(3) {
+  --recommend-accent: #a67834;
+  animation-delay: 2.4s;
+}
+
+.recommend-card:nth-child(4) {
+  --recommend-accent: #4c7c77;
+  animation-delay: 3.6s;
 }
 
 .recommend-card h3 {
   margin: 0;
   font-family: var(--font-display);
   font-size: 1.55rem;
+  line-height: 1.14;
+  color: color-mix(in srgb, var(--recommend-accent) 72%, #1f1c17);
+}
+
+.recommend-card p {
+  margin: 0;
+  color: var(--ink);
+}
+
+@keyframes recommendGlow {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.88),
+      0 26px 56px rgba(17, 30, 41, 0.12),
+      0 14px 32px color-mix(in srgb, var(--recommend-accent) 15%, rgba(17, 30, 41, 0));
+  }
+
+  50% {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.92),
+      0 30px 64px rgba(17, 30, 41, 0.14),
+      0 18px 36px color-mix(in srgb, var(--recommend-accent) 20%, rgba(17, 30, 41, 0));
+  }
+}
+
+@keyframes recommendSheen {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.42;
+  }
+
+  50% {
+    transform: translate3d(-10%, 10%, 0) scale(1.08);
+    opacity: 0.72;
+  }
 }
 
 .decision-pill {
@@ -1423,7 +1521,9 @@ img {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .offer-card {
+  .offer-card,
+  .recommend-card,
+  .recommend-card::after {
     animation: none;
   }
 }
